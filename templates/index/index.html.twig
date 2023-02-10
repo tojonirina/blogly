@@ -1,0 +1,22 @@
+{% extends 'layout/front.html.twig' %}
+
+{% block title %}Welcome to Blogly
+{% endblock %}
+
+{% block content %}
+	<form>
+        <h2 class="mb-3 p-2">Post new feed</h2>
+		<div class="mb-3">
+			<label for="exampleFormControlInput1" class="form-label">Publication title</label>
+			<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+		</div>
+		<div class="mb-3">
+			<label for="exampleFormControlTextarea1" class="form-label">Descriptions</label>
+			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+		</div>
+        <div class="mb-3">
+			<label for="exampleFormControlInput1" class="form-label">Priciple image</label>
+			<input type="file" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+		</div>
+	</form>
+{% endblock %}

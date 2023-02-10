@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	<style>
+		nav ul li {
+			margin-left: 10px;
+			padding: 0;
+			border-radius: 5px;
+			transition: background-color 0.3s ease-in-out;
+		}
+
+		nav ul li:hover {
+			background-color: #E0E0E0;
+		}
+	</style>
+{% endblock %}
+
+{% block body %}
+	<nav class="container navbar navbar-expand-lg bg-light rounded mt-2 border">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">Blogly</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="#">
+							<i class="bi bi-house"></i>
+							&nbsp;Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" href="#">
+							<i class="bi bi-image"></i>
+							&nbsp;Images</a>
+					</li>
+					<li class="nav-item position-relative">
+						<a class="nav-link active" href="#">
+							<i class="bi bi-bell"></i>
+							&nbsp;Notifications</a>
+						<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-info">
+							{{ random(1, 20 )}}
+							<span class="visually-hidden">unread messages</span>
+						</span>
+					</li>
+				</ul>
+			</div>
+			<button class="btn">
+				<i class="bi bi-search"></i>
+			</button>
+		</div>
+	</nav>
+
+	<main class="container mt-5">
+		<div class="row">
+			<div class="col-12 col-lg-2">
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item">#An item</li>
+					<li class="list-group-item">#A second item</li>
+					<li class="list-group-item">#A third item</li>
+					<li class="list-group-item">#A fourth item</li>
+					<li class="list-group-item">#And a fifth one</li>
+				</ul>
+			</div>
+			<div class="col-12 col-lg-8">
+				<div class="container-fluid  border rounded">
+					{% block content %}{% endblock %}
+				</div>
+			</div>
+			<div class="col-12 col-lg-2">
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item">#An item</li>
+					<li class="list-group-item">#A second item</li>
+					<li class="list-group-item">#A third item</li>
+					<li class="list-group-item">#A fourth item</li>
+					<li class="list-group-item">#And a fifth one</li>
+				</ul>
+			</div>
+		</div>
+	</main>
+{% endblock %}
