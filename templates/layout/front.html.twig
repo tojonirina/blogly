@@ -18,14 +18,14 @@
 {% block body %}
 	<nav class="container navbar navbar-expand-lg bg-light rounded mt-2 border">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#">Blogly</a>
+			<a class="navbar-brand" href="{{ path('blogly_index') }}">Blogly</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mx-auto mb-2 mb-lg-0">
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="#">
+						<a class="nav-link active" aria-current="page" href="{{ path('blogly_index') }}">
 							<i class="bi bi-house"></i>
 							&nbsp;Home</a>
 					</li>
@@ -38,6 +38,15 @@
 						<a class="nav-link active" href="#">
 							<i class="bi bi-bell"></i>
 							&nbsp;Notifications</a>
+						<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-info">
+							{{ random(1, 20 )}}
+							<span class="visually-hidden">unread messages</span>
+						</span>
+					</li>
+					<li class="nav-item position-relative">
+						<a class="nav-link active" href="{{ path('blogly_blog') }}">
+							<i class="bi bi-bell"></i>
+							&nbsp;Blog</a>
 						<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-info">
 							{{ random(1, 20 )}}
 							<span class="visually-hidden">unread messages</span>
