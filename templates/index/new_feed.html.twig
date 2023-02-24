@@ -1,0 +1,12 @@
+{{ form_start(new_feed_form) }}
+    <h2 class="mb-3 p-2">Post new feed</h2>
+    <div class="mb-3">
+        {{ form_row(new_feed_form.title) }}
+    </div>
+    <div class="mb-3">
+        {{ form_row(new_feed_form.description) }}
+    </div>
+    <div class="mb-3">
+        {{ form_row(new_feed_form.image) }}
+    </div>
+{{ form_end(new_feed_form) }}

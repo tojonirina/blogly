@@ -1,0 +1,24 @@
+{% extends 'layout/front.html.twig' %}
+
+{% block title %}
+Pictures
+{% endblock %}
+
+{% block content %}
+
+    <div class="row mt-2">
+
+        {% for picture in pictures %}
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="{{ picture.image ? asset('uploads/images/' ~ picture.image) : asset('images/default-image.jpg') }}" class="card-img" alt="{{ picture.image }}">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title"><a href=" {{ path('blogly_feed_show', {id: picture.id })}}" class="text-decoration-none text-white">{{ picture.title }}</a></h5>
+                        {# <p class="card-text"><small>{{ picture.createdAt }}</small></p> #}
+                    </div>
+                </div>
+            </div>
+	    {% endfor %}
+    
+    </div>
+{% endblock %}

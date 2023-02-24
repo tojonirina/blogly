@@ -1,0 +1,21 @@
+{% extends 'layout/front.html.twig' %}
+
+{% block title %}
+{{ feed.title }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="card mb-2 mt-2">
+        <img src="{{ feed.image ? asset('uploads/images/' ~ feed.image) : asset('images/default-image.jpg') }}" class="card-img-top" alt="{{ feed.image }}">
+        <div class="card-body">
+            <h3 class="card-title">{{ feed.title }}</h3>
+            <p class="card-text">{{ feed.description }}</p>
+        </div>
+        <div class="card-action text-center p-2">
+            <button class="btn"><i class="bi bi-heart"></i></button>
+            <button class="btn"><i class="bi bi-chat"></i></button>
+            <button class="btn"><i class="bi bi-share"></i></button>
+        </div>
+    </div>
+{% endblock %}
