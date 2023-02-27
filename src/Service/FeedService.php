@@ -3,15 +3,19 @@
 namespace App\Service;
 
 use App\Entity\Feed;
+use App\Event\NewFeedEvent;
 use App\Repository\FeedRepository;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class FeedService
 {
     private $reposotiry;
+    private $dispatcher;
 
-    public function __construct(FeedRepository $reposotiry)
+    public function __construct(FeedRepository $reposotiry, EventDispatcherInterface $dispatcher)
     {
         $this->reposotiry = $reposotiry;
+        $this->dispatcher = $dispatcher;
     }
 
     /**
@@ -40,9 +44,13 @@ class FeedService
      * @param Feed $feed entity
      * @return null
      */
-    public function createFeed(Feed $feed): void
+    public function createFeed(Feed $feed): Feed
     {
-        $this->reposotiry->createFeed($feed);
+        $newFeed = $this->reposotiry->createFeed($feed);
+
+        $this->dispatcher->dispatch(new NewFeedEvent($newFeed->getTitle()));
+
+        return $newFeed;
     }
 
     /**

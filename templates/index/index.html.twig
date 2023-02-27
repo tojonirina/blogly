@@ -14,11 +14,6 @@
 				<h5 class="card-title"><a href=" {{ path('blogly_feed_show', {id: feed.id })}}">{{ feed.title|post_title }}</a></h5>
 				<p class="card-text">{{ feed.description|post_description }}</p>
 			</div>
-			<div class="card-action text-center p-2">
-				<button class="btn"><i class="bi bi-heart"></i></button>
-				<button class="btn"><i class="bi bi-chat"></i></button>
-				<button class="btn"><i class="bi bi-share"></i></button>
-			</div>
 		</div>
 	{% endfor %}
 {% endblock %}

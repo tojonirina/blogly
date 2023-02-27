@@ -48,12 +48,14 @@ class FeedRepository extends ServiceEntityRepository
      * Create a new feed
      * 
      * @param Feed $feed entity
-     * @return null
+     * @return Feed
      */
-    public function createFeed(Feed $feed): void
+    public function createFeed(Feed $feed): Feed
     {
         $this->entityManager->persist($feed);
         $this->entityManager->flush();
+
+        return $feed;
     }
 
     /**
@@ -101,23 +103,23 @@ class FeedRepository extends ServiceEntityRepository
     /**
      * @return Feed[] Returns an array of Feed objects
      */
-    public function findByExampleField($value): array
-    {
-        return $this->createQueryBuilder('f')
-            ->andWhere('f.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('f.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult();
-    }
+    // public function findByExampleField($value): array
+    // {
+    //     return $this->createQueryBuilder('f')
+    //         ->andWhere('f.exampleField = :val')
+    //         ->setParameter('val', $value)
+    //         ->orderBy('f.id', 'ASC')
+    //         ->setMaxResults(10)
+    //         ->getQuery()
+    //         ->getResult();
+    // }
 
-    public function findOneBySomeField($value): ?Feed
-    {
-        return $this->createQueryBuilder('f')
-            ->andWhere('f.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult();
-    }
+    // public function findOneBySomeField($value): ?Feed
+    // {
+    //     return $this->createQueryBuilder('f')
+    //         ->andWhere('f.exampleField = :val')
+    //         ->setParameter('val', $value)
+    //         ->getQuery()
+    //         ->getOneOrNullResult();
+    // }
 }

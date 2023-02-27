@@ -16,6 +16,7 @@ class FeedController extends AbstractController
 
     public function __construct(FeedService $feedService)
     {
+        $this->checkUser();
         $this->feedService = $feedService;
     }
 
@@ -39,5 +40,13 @@ class FeedController extends AbstractController
         $pictures = $this->feedService->getPictures();
 
         return $this->render('picture/list.html.twig', ['pictures' => $pictures]);
+    }
+
+    private function checkUser()
+    {
+        if ($this->getUser())
+        {
+            return $this->redirectToRoute('blogly_index');
+        }
     }
 }
